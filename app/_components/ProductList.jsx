@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
 
-const ProductList = () => {
+const ProductList = ({ productList }) => {
   return (
-    <div>ProductList</div>
-  )
-}
+    <div>
+      {productList.map((product) => (
+        <div>{product.title}</div>
+      ))}
+    </div>
+  );
+};
 
-export default ProductList
+export default ProductList;

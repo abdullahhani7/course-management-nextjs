@@ -1,7 +1,7 @@
 const { default: axiosClient } = require("./axiosClient");
 
 const getLatestProduct = () => {
-  axiosClient.get("/products");
+  return axiosClient.get("/products");
 };
 
 export default {
