@@ -24,7 +24,7 @@ const ProductDetails = ({ params }) => {
       <BreadCrumb />
       <div className="mt-10 flex flex-col md:flex-row justify-around">
         <ProductBanner productDetails={productDetails} />
-        <ProductInfo />
+        <ProductInfo productDetails={productDetails} />
       </div>
     </div>
   );
