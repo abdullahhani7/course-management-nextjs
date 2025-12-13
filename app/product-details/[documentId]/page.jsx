@@ -22,7 +22,7 @@ const ProductDetails = ({ params }) => {
   return (
     <div className="px-10 md:px-28 py-8">
       <BreadCrumb />
-      <div className="mt-10 flex flex-col md:flex-row justify-around">
+      <div className="grid gap-5 md:gap-0 grid-cols-1 md:grid-cols-2 mt-10 justify-around">
         <ProductBanner productDetails={productDetails} />
         <ProductInfo productDetails={productDetails} />
       </div>
