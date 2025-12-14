@@ -2,13 +2,19 @@
 import { UserButton, useUser } from "@clerk/nextjs";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    setIsLoggedIn(window.location.href.toString().includes("sign-in"));
+  }, []);
+
   const { user } = useUser();
 
   return (
-    user && (
+    !isLoggedIn && (
       <header className="bg-white  shadow-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-8 px-4 sm:px-6 lg:px-8">
           <Image src="/logo.svg" alt="logo" width={40} height={40} />
@@ -62,7 +68,7 @@ const Header = () => {
                 <div className="sm:flex sm:gap-4">
                   <a
                     className="block rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-500"
-                    href="#"
+                    href="/sign-in"
                   >
                     Login
                   </a>
