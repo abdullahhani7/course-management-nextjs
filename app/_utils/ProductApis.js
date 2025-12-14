@@ -7,7 +7,11 @@ const getLatestProduct = () => {
 const getProductById = (documentId) =>
   axiosClient.get(`/products/${documentId}?populate=*`);
 
+const getProductsByCategory = (category) =>
+  axiosClient.get(`/products?filters[category][$eq]=${category}&populate=*`);
+
 export default {
   getLatestProduct,
   getProductById,
+  getProductsByCategory,
 };
