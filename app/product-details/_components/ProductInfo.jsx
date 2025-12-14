@@ -1,9 +1,19 @@
 import { AlertOctagon, BadgeCheck, ShoppingCart } from "lucide-react";
 import React from "react";
 import SkeletonProductInfo from "./SkeletonProductInfo";
+import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 
 const ProductInfo = ({ productDetails }) => {
-  // if (!productDetails) return null;
+  const { user } = useUser();
+  const router = useRouter();
+  const handleAddToCart = () => {
+    if (!user) {
+      router.push("/sign-in");
+    } else {
+      // logic
+    }
+  };
   const description =
     productDetails.description?.[0]?.children?.[0]?.text ?? "";
   return (
@@ -26,7 +36,10 @@ const ProductInfo = ({ productDetails }) => {
           <h2 className="text-primary text-[32px] mt-3">
             $ {productDetails.price}
           </h2>
-          <button className="flex gap-2 bg-primary text-white rounded-lg p-3 hover:bg-teal-600">
+          <button
+            onClick={() => handleAddToCart()}
+            className="flex gap-2 bg-primary text-white rounded-lg p-3 hover:bg-teal-600"
+          >
             <ShoppingCart />
             Add To Cart
           </button>
