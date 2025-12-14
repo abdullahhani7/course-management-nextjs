@@ -3,15 +3,27 @@ import React from "react";
 import SkeletonProductInfo from "./SkeletonProductInfo";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import CartApis from "../../_utils/CartApis";
 
 const ProductInfo = ({ productDetails }) => {
   const { user } = useUser();
+  console.log("user", user);
+
   const router = useRouter();
   const handleAddToCart = () => {
     if (!user) {
       router.push("/sign-in");
     } else {
-      // logic
+      const data = {
+        data: {
+          username: user.fullName,
+          email: user.primaryEmailAddress.emailAddress,
+          products: [productDetails?.documentId],
+        },
+      };
+      CartApis.addToCart(data)
+        .then((res) => console.log("cart created successfully", res))
+        .catch((error) => console.log("error", error));
     }
   };
   const description =
