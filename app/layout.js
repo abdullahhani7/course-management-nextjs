@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
+import { CartContext } from "./_context/CartContext";
 
 const inter = Roboto({ subsets: ["latin"], weight: "700" });
 
@@ -14,13 +15,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body className={inter.className}>
-          <Header />
-          {children}
-          <Footer />
-        </body>
-      </html>
+      <CartContext>
+        <html lang="en">
+          <body className={inter.className}>
+            <Header />
+            {children}
+            <Footer />
+          </body>
+        </html>
+      </CartContext>
     </ClerkProvider>
   );
 }
