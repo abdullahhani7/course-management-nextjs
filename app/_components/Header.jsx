@@ -1,5 +1,6 @@
 "use client";
-import { useUser } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
+import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
@@ -57,20 +58,30 @@ const Header = () => {
               </ul>
             </nav>
             <div className="flex items-center gap-4">
-              <div className="sm:flex sm:gap-4">
-                <a
-                  className="block rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-500"
-                  href="#"
-                >
-                  Login
-                </a>
-                <a
-                  className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-500/75 sm:block"
-                  href="#"
-                >
-                  Register
-                </a>
-              </div>
+              {!user ? (
+                <div className="sm:flex sm:gap-4">
+                  <a
+                    className="block rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-500"
+                    href="#"
+                  >
+                    Login
+                  </a>
+                  <a
+                    className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-500/75 sm:block"
+                    href="#"
+                  >
+                    Register
+                  </a>
+                </div>
+              ) : (
+                <div className="flex items-center gap-5">
+                  <h2 className="flex gap-1 cursor-pointer ">
+                    <ShoppingCart />
+                    (0)
+                  </h2>
+                  <UserButton />
+                </div>
+              )}
               <button className="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
                 <span className="sr-only">Toggle menu</span>
                 <svg
