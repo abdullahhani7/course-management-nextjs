@@ -18,7 +18,7 @@ const BreadCrumb = ({ pathname, productTitle }) => {
         <li className="relative flex items-center">
           <span className="absolute inset-y-0 -start-px h-10 w-4 bg-gray-100 [clip-path:_polygon(0_0,_0%_100%,_100%_50%)] rtl:rotate-180"></span>
           <Link
-            href="ظ"
+            href=""
             className="block h-10 pr-4 pl-6 leading-10 transition-colors hover:text-gray-900"
           >
             {pathname.split("/").filter(Boolean)[0]}
