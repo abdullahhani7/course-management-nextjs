@@ -2,10 +2,13 @@
 import { UserButton, useUser } from "@clerk/nextjs";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { CartContext } from "../_context/CartContext";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { cart, setCart } = useContext(CartContext);
+  console.log("cart", cart);
 
   useEffect(() => {
     setIsLoggedIn(window.location.href.toString().includes("sign-in"));
@@ -82,8 +85,7 @@ const Header = () => {
               ) : (
                 <div className="flex items-center gap-5">
                   <h2 className="flex gap-1 cursor-pointer ">
-                    <ShoppingCart />
-                    (0)
+                    <ShoppingCart />({cart?.length})
                   </h2>
                   <UserButton />
                 </div>

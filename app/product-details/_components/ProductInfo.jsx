@@ -1,11 +1,14 @@
 import { AlertOctagon, BadgeCheck, ShoppingCart } from "lucide-react";
-import React from "react";
+import React, { useContext } from "react";
 import SkeletonProductInfo from "./SkeletonProductInfo";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import CartApis from "../../_utils/CartApis";
+import { CartContext } from "../../_context/CartContext";
 
 const ProductInfo = ({ productDetails }) => {
+  const { cart, setCart } = useContext(CartContext);
+
   const { user } = useUser();
   console.log("user", user);
 
@@ -22,8 +25,19 @@ const ProductInfo = ({ productDetails }) => {
         },
       };
       CartApis.addToCart(data)
-        .then((res) => console.log("cart created successfully", res))
-        .catch((error) => console.log("error", error));
+        .then((res) => {
+          console.log("cart created successfully", res.data.data);
+          setCart((oldCart) => [
+            ...oldCart,
+            {
+              id: res?.data?.data?.documentId,
+              productDetails,
+            },
+          ]);
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
     }
   };
   const description =
