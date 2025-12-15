@@ -4,17 +4,29 @@ import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../_context/CartContext";
+import CartApis from "../_utils/CartApis";
 
 const Header = () => {
+  const { user } = useUser();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { cart, setCart } = useContext(CartContext);
-  console.log("cart", cart);
+  // console.log("cart", cart);
 
   useEffect(() => {
     setIsLoggedIn(window.location.href.toString().includes("sign-in"));
   }, []);
 
-  const { user } = useUser();
+  useEffect(() => {
+    user && getCartItems();
+  }, [user]);
+
+  const getCartItems = () => {
+    CartApis.getUserCartItems(user?.primaryEmailAddress.emailAddress).then(
+      (res) => {
+        console.log("ress", res?.data?.data);
+      }
+    );
+  };
 
   return (
     !isLoggedIn && (

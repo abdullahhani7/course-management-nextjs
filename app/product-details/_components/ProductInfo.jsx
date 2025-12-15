@@ -10,7 +10,7 @@ const ProductInfo = ({ productDetails }) => {
   const { cart, setCart } = useContext(CartContext);
 
   const { user } = useUser();
-  console.log("user", user);
+  // console.log("user", user);
 
   const router = useRouter();
   const handleAddToCart = () => {
@@ -26,7 +26,7 @@ const ProductInfo = ({ productDetails }) => {
       };
       CartApis.addToCart(data)
         .then((res) => {
-          console.log("cart created successfully", res.data.data);
+          // console.log("cart created successfully", res.data.data);
           setCart((oldCart) => [
             ...oldCart,
             {

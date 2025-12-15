@@ -9,7 +9,7 @@ import ProductList from "../../_components/ProductList";
 
 const ProductDetails = ({ params }) => {
   const pathname = usePathname();
-  console.log(pathname);
+  // console.log(pathname);
 
   const [productDetails, setProductDetails] = useState({});
   const [productList, setProductList] = useState([]);
@@ -27,7 +27,7 @@ const ProductDetails = ({ params }) => {
 
   const getProductsByCategory = (product) => {
     ProductApis.getProductsByCategory(product.category).then((res) => {
-      console.log(res?.data?.data);
+      // console.log(res?.data?.data);
       setProductList(res?.data?.data);
     });
   };
