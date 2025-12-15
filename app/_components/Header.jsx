@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../_context/CartContext";
 import CartApis from "../_utils/CartApis";
+import Cart from "./Cart";
 
 const Header = () => {
   const { user } = useUser();
@@ -25,11 +26,13 @@ const Header = () => {
       (res) => {
         console.log("response from cart items", res?.data?.data);
         res?.data?.data.forEach((citem) => {
+          console.log('citem',citem);
+          
           setCart((oldCart) => [
             ...oldCart,
             {
-              id: citem.id,
-              product: citem?.attributes?.products?.data[0],
+              id: citem.documentId,
+              product: citem?.products[0],
             },
           ]);
         });
@@ -109,6 +112,7 @@ const Header = () => {
                     <ShoppingCart />({cart?.length})
                   </h2>
                   <UserButton />
+                  <Cart />
                 </div>
               )}
               <button className="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
