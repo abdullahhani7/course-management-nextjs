@@ -21,9 +21,18 @@ const Header = () => {
   }, [user]);
 
   const getCartItems = () => {
-    CartApis.getUserCartItems(user?.primaryEmailAddress.emailAddress).then(
+    CartApis.getUserCartItems(user.primaryEmailAddress.emailAddress).then(
       (res) => {
-        console.log("ress", res?.data?.data);
+        console.log("response from cart items", res?.data?.data);
+        res?.data?.data.forEach((citem) => {
+          setCart((oldCart) => [
+            ...oldCart,
+            {
+              id: citem.id,
+              product: citem?.attributes?.products?.data[0],
+            },
+          ]);
+        });
       }
     );
   };
