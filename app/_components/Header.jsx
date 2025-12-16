@@ -54,7 +54,7 @@ const Header = () => {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    href="/"
                   >
                     Home
                   </a>
@@ -62,7 +62,7 @@ const Header = () => {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    href="/"
                   >
                     Explore
                   </a>
@@ -70,7 +70,7 @@ const Header = () => {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    href="/"
                   >
                     Projects
                   </a>
@@ -78,7 +78,7 @@ const Header = () => {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    href="/"
                   >
                     About Us
                   </a>
@@ -86,7 +86,7 @@ const Header = () => {
                 <li>
                   <a
                     className="text-gray-500 transition hover:text-gray-500/75"
-                    href="#"
+                    href="/"
                   >
                     Contact Us
                   </a>
@@ -104,7 +104,7 @@ const Header = () => {
                   </a>
                   <a
                     className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-500/75 sm:block"
-                    href="#"
+                    href="/"
                   >
                     Register
                   </a>
