@@ -46,16 +46,16 @@ const ProductInfo = ({ productDetails }) => {
   const description =
     productDetails.description?.[0]?.children?.[0]?.text ?? "";
   return (
-    <div>
+    <div className="mt-2  "> 
       {productDetails.id ? (
         <div>
           <h2 className="text-[20px]">{productDetails.title}</h2>
           <h2 className="text-[15px] text-gray-400">
-            {productDetails.category}
+            {productDetails?.category}
           </h2>
           <p className="text-[13px] mt-5">{description}</p>
           <h2 className="text-[11px] text-gray-500 flex items-center gap-2 mt-2 ">
-            {productDetails.instanttDelivery ? (
+            {productDetails?.instanttDelivery ? (
               <BadgeCheck className="text-green-500 h-5 w-5" />
             ) : (
               <AlertOctagon />
@@ -63,7 +63,7 @@ const ProductInfo = ({ productDetails }) => {
             Eligible For Instant Delivery
           </h2>
           <h2 className="text-primary text-[32px] mt-3">
-            $ {productDetails.price}
+            $ {productDetails?.price}
           </h2>
           <button
             onClick={() => handleAddToCart()}
