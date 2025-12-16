@@ -29,7 +29,7 @@ const Header = () => {
       (res) => {
         console.log("response from cart items", res?.data?.data);
         res?.data?.data.forEach((citem) => {
-          console.log("citem", citem);
+          // console.log("citem", citem);
 
           setCart((oldCart) => [
             ...oldCart,

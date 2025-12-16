@@ -7,7 +7,11 @@ const getUserCartItems = (email) =>
     `carts?populate[products][populate]=banner&filters[email][$eq]=${email}`
   );
 
+const deleteCartItem = (documentId) =>
+  axiosClient.delete(`/carts/${documentId}`);
+
 export default {
   addToCart,
   getUserCartItems,
+  deleteCartItem,
 };
