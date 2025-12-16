@@ -28,7 +28,7 @@ const Header = () => {
   const getCartItems = () => {
     CartApis.getUserCartItems(user.primaryEmailAddress.emailAddress).then(
       (res) => {
-        console.log("response from cart items", res?.data?.data);
+        // console.log("response from cart items", res?.data?.data);
         res?.data?.data.forEach((citem) => {
           // console.log("citem", citem);
 

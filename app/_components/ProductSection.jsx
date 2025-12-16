@@ -16,7 +16,7 @@ const ProductSection = () => {
   };
   return (
     <div className="px-10 md:px-20">
-      <h2 className="my-4 text-2xl">Our Latest Products</h2>
+      <h2 className="my-4 text-2xl">Brand New</h2>
       <ProductList productList={productList} />
     </div>
   );
