@@ -63,7 +63,7 @@ const Header = () => {
   return (
     !isLoggedIn && (
       <header className="bg-white  shadow-md">
-        <div className="mx-auto flex h-16 max-w-7xl items-center gap-8 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-full items-center gap-8 px-4 sm:px-6 lg:px-14">
           <Link href="/">
             <Image src="/logo.svg" alt="logo" width={40} height={40} />
           </Link>
