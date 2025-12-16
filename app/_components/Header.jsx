@@ -10,6 +10,9 @@ import Cart from "./Cart";
 const Header = () => {
   const { user } = useUser();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const [openCart, setOpenCart] = useState(false);
+
   const { cart, setCart } = useContext(CartContext);
   // console.log("cart", cart);
 
@@ -26,8 +29,8 @@ const Header = () => {
       (res) => {
         console.log("response from cart items", res?.data?.data);
         res?.data?.data.forEach((citem) => {
-          console.log('citem',citem);
-          
+          console.log("citem", citem);
+
           setCart((oldCart) => [
             ...oldCart,
             {
@@ -109,10 +112,11 @@ const Header = () => {
               ) : (
                 <div className="flex items-center gap-5">
                   <h2 className="flex gap-1 cursor-pointer ">
-                    <ShoppingCart />({cart?.length})
+                    <ShoppingCart onClick={() => setOpenCart(!openCart)} />(
+                    {cart?.length})
                   </h2>
                   <UserButton />
-                  <Cart />
+                  {openCart && <Cart />}
                 </div>
               )}
               <button className="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
