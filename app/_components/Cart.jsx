@@ -3,7 +3,7 @@ import Link from "next/link";
 import { CartContext } from "../_context/CartContext";
 function Cart() {
   const { cart, setCart } = useContext(CartContext);
-  console.log("cartt", cart);
+  // console.log("cartt", cart);
 
   return (
     <div

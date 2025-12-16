@@ -8,6 +8,8 @@ import { CartContext } from "../../_context/CartContext";
 
 const ProductInfo = ({ productDetails }) => {
   const { cart, setCart } = useContext(CartContext);
+  // console.log(cart);
+  
 
   const { user } = useUser();
   // console.log("user", user);
@@ -30,10 +32,11 @@ const ProductInfo = ({ productDetails }) => {
           setCart((oldCart) => [
             ...oldCart,
             {
-              id: res?.data?.data?.documentId,
-              productDetails,
+              id: res?.data?.data?.id,
+               product: productDetails,
             },
           ]);
+          console.log("cartttt", res?.data?.data?.documentId);
         })
         .catch((error) => {
           console.log("error", error);
