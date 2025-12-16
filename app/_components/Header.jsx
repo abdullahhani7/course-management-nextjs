@@ -2,13 +2,15 @@
 import { UserButton, useUser } from "@clerk/nextjs";
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { CartContext } from "../_context/CartContext";
 import CartApis from "../_utils/CartApis";
 import Cart from "./Cart";
 import Link from "next/link";
 
 const Header = () => {
+  const cartRef = useRef(null);
+
   const { user } = useUser();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -16,6 +18,20 @@ const Header = () => {
 
   const { cart, setCart } = useContext(CartContext);
   // console.log("cart", cart);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (cartRef.current && !cartRef.current.contains(e.target)) {
+        setOpenCart(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     setIsLoggedIn(window.location.href.toString().includes("sign-in"));
@@ -119,7 +135,11 @@ const Header = () => {
                     {cart?.length})
                   </h2>
                   <UserButton />
-                  {openCart && <Cart />}
+                  {openCart && (
+                    <div ref={cartRef}>
+                      <Cart />
+                    </div>
+                  )}
                 </div>
               )}
               <button className="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
