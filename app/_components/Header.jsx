@@ -6,6 +6,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../_context/CartContext";
 import CartApis from "../_utils/CartApis";
 import Cart from "./Cart";
+import Link from "next/link";
 
 const Header = () => {
   const { user } = useUser();
@@ -47,49 +48,51 @@ const Header = () => {
     !isLoggedIn && (
       <header className="bg-white  shadow-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-          <Image src="/logo.svg" alt="logo" width={40} height={40} />
+          <Link href="/">
+            <Image src="/logo.svg" alt="logo" width={40} height={40} />
+          </Link>
           <div className="flex flex-1 items-center justify-end md:justify-between">
             <nav aria-label="Global" className="hidden md:block">
               <ul className="flex items-center gap-6 text-sm">
                 <li>
-                  <a
+                  <Link
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="/"
                   >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="/"
                   >
                     Explore
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="/"
                   >
                     Projects
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="/"
                   >
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-gray-500 transition hover:text-gray-500/75"
                     href="/"
                   >
                     Contact Us
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
