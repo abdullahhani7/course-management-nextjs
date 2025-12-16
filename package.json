@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.36.2",
+    "@stripe/react-stripe-js": "^5.4.1",
+    "@stripe/stripe-js": "^8.6.0",
+    "stripe": "13.2.0",
     "axios": "^1.13.2",
     "lucide-react": "^0.561.0",
     "next": "^14.2.25",
