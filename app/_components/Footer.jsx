@@ -10,8 +10,7 @@ function Footer() {
 				</div>
 
 				<p className="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-500">
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt consequuntur amet culpa cum
-					itaque neque.
+					Learn, explore, and buy courses easily. Powered by modern web technologies.
 				</p>
 
 				<ul className="flex flex-wrap justify-center gap-6 mt-12 md:gap-8 lg:gap-12">
