@@ -1,14 +1,14 @@
-import React from "react";
 import ProductItem from "./ProductItem";
+import ProductSkeleton from './ProductSkeleton'
 
-const ProductList = ({ productList }) => {
+const ProductList = ({ productList, isLoading }) => {
+  const skeletonArray = Array.from({ length: 8 });
+
   return (
-    <div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-        {productList.map((product) => (
-          <ProductItem product={product} />
-        ))}
-      </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      {isLoading
+        ? skeletonArray.map((_, i) => <ProductSkeleton key={i} />)
+        : productList.map((product) => <ProductItem key={product.documentId} product={product} />)}
     </div>
   );
 };
