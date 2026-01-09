@@ -4,7 +4,7 @@ import React from "react";
 function Hero() {
   return (
     <section className="bg-gray-50">
-      <div className="max-w-screen-xl px-4 py-32 mx-auto pt-36 lg:flex lg:h-screen">
+      <div className="max-w-screen-xl px-4 py-32 mx-auto pt-36 lg:flex lg:h-[calc(100vh-64px)]">
         <div className="max-w-xl mx-auto text-center">
           <h1 className="text-3xl font-extrabold sm:text-5xl">
             All Your Digital Products
